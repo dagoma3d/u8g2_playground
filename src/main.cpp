@@ -4,7 +4,7 @@
 
 #define MAXTEMP0 80
 #define MINTEMP0 0
-#define MAXTEMP1 220
+#define MAXTEMP1 200
 
 //I/O Pin setup
 #define T0_PIN A13
@@ -195,6 +195,9 @@ void loop() {
       digitalWrite(HEATER_PIN, LOW);
     }
   }
+  else{
+    digitalWrite(HEATER_PIN, LOW);
+  }
 
   //Display
 
@@ -218,11 +221,11 @@ void loop() {
     
     
     //Resistor Temp
-    sprintf(target0, "%d",targetTemp1);
+    sprintf(target1, "%d",currentTemp1);
     u8g2.drawStr(5, 60, target1);
-    u8g2.drawStr(25, 50,".");
-    u8g2.drawStr(30, 60,"C");
-    u8g2.drawStr(45, 60,"> Res");
+    u8g2.drawStr(45, 50,".");
+    u8g2.drawStr(50, 60,"C");
+    u8g2.drawStr(60, 60," Res");
 
   } while ( u8g2.nextPage() );
 
